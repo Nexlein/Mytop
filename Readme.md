@@ -37,27 +37,6 @@ MyTop is a lightweight system monitoring tool inspired by the `top` command. It 
 - **Quit the program**: Press `q` to exit.
 - **Refresh rate**: The display refreshes every 3 seconds by default.
 
-## File Structure
-
-- **Source Files**:
-  - `my_getuser.c`: Retrieves the number of logged-in users.
-  - `my_getuptime.c`: Calculates system uptime.
-  - `my_getpriority.c` and `my_getnice.c`: Fetch process priority and nice values.
-  - `my_getnbtask.c`: Counts the number of tasks and their states.
-  - `my_getmemused.c`: Calculates used memory.
-  - `my_getloadavg.c`: Reads system load averages.
-  - `my_getcommand.c`: Extracts the command name of a process.
-  - `my_checkstate.c`: Determines the state of a process.
-  - `make_filepath.c`: Constructs file paths for `/proc` entries.
-  - `get_taskinfo.c`: Gathers and displays task information.
-  - `header.c`: Displays the header section of the interface.
-  - `bold.c`: Handles bold formatting for numeric values.
-  - `hour.c`: Displays the current time.
-  - `isfile.c`: Checks if a file exists and is regular.
-- **Header File**:
-  - `include/my.h`: Contains all function prototypes and type definitions.
-- **Makefile**: Automates the build process.
-
 ## Dependencies
 
 - **Libraries**:
@@ -68,4 +47,3 @@ MyTop is a lightweight system monitoring tool inspired by the `top` command. It 
 ## Acknowledgments
 
 - Inspired by the `top` command-line utility.
-- Developed as part of the EPITECH 2024 curriculum.
