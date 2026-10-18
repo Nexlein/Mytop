@@ -12,7 +12,8 @@ static void first_line(void)
     mvprintw(0, 0, "top - ");
     myhour();
     my_getuptime();
-    printw("  0 user,  ");
+    printw("  ");
+    my_getuser();
     my_getloadavg();
 }
 
@@ -29,24 +30,27 @@ static void second_line(state_t *state)
     printw(" zombie\n");
 }
 
-static void third_line(void)
+static void third_line(state_t *state)
 {
+    float cpu[CPU_FIELDS] = {0};
+
+    my_getcpu(state, cpu);
     printw("%%Cpu(s):  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_US]);
     printw(" us,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_SY]);
     printw(" sy,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_NI]);
     printw(" ni, ");
-    bold_float(00.0);
+    bold_float(cpu[CPU_ID]);
     printw(" id,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_WA]);
     printw(" wa,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_HI]);
     printw(" hi,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_SI]);
     printw(" si,  ");
-    bold_float(0.0);
+    bold_float(cpu[CPU_ST]);
     printw(" st\n");
 }
 
@@ -98,7 +102,7 @@ void header(state_t *state)
 {
     first_line();
     second_line(state);
-    third_line();
+    third_line(state);
     fourth_line();
     fifth_line();
     white_line();

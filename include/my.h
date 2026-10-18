@@ -19,6 +19,18 @@
 #ifndef MY_H
     #define MY_H
 
+enum cpu_field {
+    CPU_US,
+    CPU_NI,
+    CPU_SY,
+    CPU_ID,
+    CPU_WA,
+    CPU_HI,
+    CPU_SI,
+    CPU_ST,
+    CPU_FIELDS
+};
+
 typedef struct taskinfo {
     char *pid;
     char *user;
@@ -42,6 +54,7 @@ typedef struct state {
     int y;
     int nbtask;
     char state;
+    unsigned long long cpu_prev[CPU_FIELDS];
 } state_t;
 
 void myhour(void);
@@ -53,6 +66,7 @@ void my_getuptime(void);
 void bold_float(float nb);
 int isfile(char *filepath);
 void header(state_t *state);
+void my_getcpu(state_t *state, float *percent);
 float my_getbuffcache(void);
 char *make_filepath(char *pid);
 float my_getmeminfo(char *str);
