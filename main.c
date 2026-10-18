@@ -9,7 +9,7 @@
 
 int main(void)
 {
-    state_t *state = malloc(sizeof(state_t));
+    state_t *state = calloc(1, sizeof(state_t));
     int key = 0;
     WINDOW *window = initscr();
 

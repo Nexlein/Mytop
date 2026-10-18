@@ -4,10 +4,10 @@ MyTop is a lightweight system monitoring tool inspired by the `top` command. It 
 
 ## Features
 
-- **Process Monitoring**: Displays detailed information about running processes, including PID, user, priority, nice value, and command.
+- **Process Monitoring**: Displays detailed information about running processes, including PID, user, priority, nice value, state, and command. The per-process VIRT, RES, SHR, %CPU, %MEM, and TIME+ columns are not computed yet and show 0.
 - **System Metrics**:
   - Memory usage (total, free, used, and cached).
-  - CPU usage statistics.
+  - CPU usage statistics (us, sy, ni, id, wa, hi, si, st), computed from `/proc/stat` between two refreshes; the first frame shows the average since boot.
   - Load averages.
   - Uptime and number of users.
 - **Task States**: Tracks the number of tasks in various states (running, sleeping, stopped, zombie).
@@ -17,8 +17,8 @@ MyTop is a lightweight system monitoring tool inspired by the `top` command. It 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Nielsen-ls/B-PSU-100-MPL-1-1-mytop.git
-   cd B-PSU-100-MPL-1-1-mytop
+   git clone https://github.com/Nexlein/Mytop.git
+   cd Mytop
    ```
 
 2. Build the project:
@@ -40,7 +40,7 @@ MyTop is a lightweight system monitoring tool inspired by the `top` command. It 
 ## Dependencies
 
 - **Libraries**:
-  - `ncurses`: Used for terminal-based UI rendering.
+  - `ncurses`: Used for terminal-based UI rendering (`libncurses-dev` on Debian/Ubuntu).
 - **System Requirements**:
   - Linux-based operating system (relies on `/proc` filesystem).
 
